@@ -1,0 +1,60 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+@import 'tailwindcss';
+@config "../../tailwind.config.js";
+
+/* Leaflet map chrome tuned to the dark teal theme */
+.leaflet-container {
+  background-color: #0d2023;
+  font-family: inherit;
+}
+.leaflet-control-attribution {
+  background: rgba(13, 32, 35, 0.85) !important;
+  color: #8ba7a4 !important;
+  font-size: 10px !important;
+}
+.leaflet-control-attribution a {
+  color: #2fa394 !important;
+}
+.leaflet-bar a {
+  background-color: #122e31 !important;
+  color: #dce9e7 !important;
+  border-color: #1c4247 !important;
+}
+.leaflet-bar a:hover {
+  background-color: #1c4247 !important;
+}
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  background-color: #071214;
+}
+body {
+  color: #dce9e7;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background-color: #f2b33d;
+  color: #071214;
+}
+*:focus-visible {
+  outline: 2px solid #f2b33d;
+  outline-offset: 2px;
+}
+/* Thin, quiet scrollbars that match the dark canvas */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1c4247 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #1c4247;
+  border-radius: 999px;
+}

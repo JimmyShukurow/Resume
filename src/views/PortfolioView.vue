@@ -39,7 +39,9 @@ const visible = computed(() =>
     <TransitionGroup tag="ul" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" name="project">
       <li v-for="(project, index) in visible" :key="project.name">
         <a
-          href="#"
+          :href="project.link"
+          target="_blank"
+          rel="noopener noreferrer"
           class="group flex h-full flex-col rounded-2xl border border-line bg-elevated p-5 transition-colors hover:border-accent/60"
         >
           <div class="overflow-hidden rounded-xl border border-line bg-surface">

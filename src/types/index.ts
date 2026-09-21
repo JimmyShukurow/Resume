@@ -33,6 +33,7 @@ export type Project = {
   category: ProjectCategory
   stack: string[]
   image: string
+  link: string
 }
 
 export type Post = {

@@ -19,9 +19,9 @@ export const channels: ContactChannel[] = [
 ]
 
 export const socials: SocialLink[] = [
-  { label: 'YouTube', href: '#' },
-  { label: 'LinkedIn', href: '#' },
-  { label: 'GitHub', href: '#' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@jimishukurow2286' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jemshit-shukurov/' },
+  { label: 'GitHub', href: 'https://github.com/JimmyShukurow' },
 ]
 
 export const aboutParagraphs: string[] = [

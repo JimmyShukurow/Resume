@@ -13,12 +13,41 @@ export const education: TimelineEntry[] = [
   },
 ]
 
-export const experience: TimelineEntry[] = [
+type RawEntry = Omit<TimelineEntry, 'duration'>
+
+function calculateDuration(period: string): string {
+  const [startStr, endStr] = period.split(/[—-]/).map((s) => s.trim())
+
+  if (!startStr || !endStr) {
+    throw new Error(`Invalid period format: "${period}"`)
+  }
+  const parseDate = (str: string): Date => {
+    if (/present/i.test(str)) return new Date()
+    return new Date(`1 ${str}`) // "Oct, 2024" -> "1 Oct, 2024"
+  }
+
+  const start = parseDate(startStr)
+  const end = parseDate(endStr)
+
+  let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
+
+  if (months < 1) months = 1
+
+  const years = Math.floor(months / 12)
+  const remMonths = months % 12
+
+  const parts: string[] = []
+  if (years > 0) parts.push(`${years} yr${years > 1 ? 's' : ''}`)
+  if (remMonths > 0 || years === 0) parts.push(`${remMonths} mo${remMonths !== 1 ? 's' : ''}`)
+
+  return parts.join(' ')
+}
+
+const rawExperience: RawEntry[] = [
   {
     title: 'Fullstack Developer',
     org: 'Insof Nasiya',
     period: 'Oct, 2024 — Present',
-    duration: '7 mos',
     location: 'Tashkent, Uzbekistan',
     bullets: [
       'Enhanced Kotlin-based Android app for improved performance and stability.',
@@ -31,7 +60,6 @@ export const experience: TimelineEntry[] = [
     title: 'Fullstack Developer',
     org: 'SmartIR',
     period: 'Nov, 2022 — Jul, 2024',
-    duration: '1 yr, 9 mos',
     location: 'Istanbul, Turkey',
     bullets: [
       'Led a startup team focused on developing projects utilizing Infrared Cameras.',
@@ -46,7 +74,6 @@ export const experience: TimelineEntry[] = [
     title: 'Fullstack Developer',
     org: 'Gainex Crypto Market',
     period: 'Oct, 2021 — Sep, 2022',
-    duration: '11 mos',
     location: 'Istanbul, Turkey',
     bullets: [
       'Took a role in development of website from scratch using VUE with Quasar and Laravel with Spring Boot.',
@@ -58,3 +85,8 @@ export const experience: TimelineEntry[] = [
     ],
   },
 ]
+
+export const experience: TimelineEntry[] = rawExperience.map((e) => ({
+  ...e,
+  duration: calculateDuration(e.period),
+}))

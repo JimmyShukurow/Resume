@@ -80,6 +80,7 @@ const socialIcons: Record<string, typeof Youtube> = {
       <li v-for="social in socials" :key="social.label" class="group relative">
         <a
           :href="social.href"
+          target="_blank"
           :aria-label="social.label"
           class="flex h-10 w-10 items-center justify-center rounded-xl border border-line bg-elevated text-muted transition-colors hover:border-accent hover:text-accent group-focus-within:border-accent group-focus-within:text-accent"
         >
@@ -95,7 +96,8 @@ const socialIcons: Record<string, typeof Youtube> = {
       </li>
       <li class="group relative" data-id="element-56" data-mp="1k5nyir8di6hl">
         <a
-          href="#"
+          href="https://leetcode.com/u/JimmyShukurov"
+          target="_blank"
           aria-label="LeetCode"
           class="flex h-10 w-10 items-center justify-center rounded-xl border border-line bg-elevated text-muted transition-colors hover:border-accent hover:text-accent group-focus-within:border-accent group-focus-within:text-accent"
           data-id="element-57"

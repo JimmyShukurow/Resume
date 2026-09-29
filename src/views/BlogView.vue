@@ -2,11 +2,6 @@
 import { ArrowRightIcon } from 'lucide-vue-next'
 import PageHeading from '../components/PageHeading.vue'
 import { posts } from '../data/posts'
-
-function openLinkInNewTab(url: string) {
-  const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-  if (newWindow) newWindow.opener = null
-}
 </script>
 
 <template>
@@ -14,7 +9,7 @@ function openLinkInNewTab(url: string) {
     <PageHeading eyebrow="Writing" title="Blog" />
 
     <ul class="grid gap-4 sm:grid-cols-2">
-      <li v-for="post in posts" :key="post.title" @click="openLinkInNewTab(post.link!)">
+      <li v-for="post in posts" :key="post.title">
         <article
           class="group flex h-full flex-col rounded-2xl border border-line bg-elevated p-6 transition-colors hover:border-accent/60"
         >
@@ -28,7 +23,10 @@ function openLinkInNewTab(url: string) {
             {{ post.excerpt }}
           </p>
 
-          <a href="#" class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent">
+          <a
+            href="post.link!"
+            class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent"
+          >
             Read post
             <ArrowRightIcon
               :size="15"

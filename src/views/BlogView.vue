@@ -24,7 +24,9 @@ import { posts } from '../data/posts'
           </p>
 
           <a
-            href="post.link!"
+            :href="post.link!"
+            target="_blank"
+            rel="noopener noreferrer"
             class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent"
           >
             Read post

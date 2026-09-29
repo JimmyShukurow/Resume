@@ -41,4 +41,5 @@ export type Post = {
   date: string
   kind: string
   excerpt: string
+  link?: string
 }

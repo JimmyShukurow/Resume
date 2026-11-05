@@ -25,7 +25,8 @@ import { education, experience } from '../data/resume'
 
     <div class="flex justify-end border-t border-line pt-6">
       <a
-        href="#"
+        href="/Jemshit-Shukurov-CV.pdf"
+        download="Jemshit-Shukurov-CV.pdf"
         class="inline-flex items-center gap-2 rounded-full border border-accent px-5 py-2.5 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-ink"
       >
         <Download :size="16" :stroke-width="1.75" aria-hidden="true" />
